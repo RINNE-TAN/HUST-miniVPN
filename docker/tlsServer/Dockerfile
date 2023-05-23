@@ -1,8 +1,8 @@
-FROM ubuntu:impish
-MAINTAINER 6QHTSK "psk2019@qq.com"
+FROM ubuntu:latest
+
 WORKDIR /opt/tlsServer
 
-RUN sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list && apt-get clean && apt-get update --allow-insecure-repositories
+RUN apt-get clean && apt-get update --allow-insecure-repositories
 RUN apt-get install -y telnet net-tools --allow-unauthenticated
 RUN useradd test && echo 'test:123456' | chpasswd
 
